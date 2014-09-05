@@ -93,7 +93,7 @@ div.tooltip {
 		.domain([1, areaMax])
 		.range(colorbrewer.Oranges[9]);
 
-	queue().defer(d3.json, "/ca-counties-topo.json")
+	queue().defer(d3.json, "/caCountiesTopoSimple.json")
 		.await(ready);
 
 	function ready(error, ca){
@@ -182,7 +182,6 @@ div.tooltip {
 			return y(d[1]) - 3; })
 		.attr("x", 12)
 		.text(function(d,i) { 
-			console.log(i%2);
 			if (i === 0 | i === 4 | i === 8) return format(d[0]) + " - " + format(d[1]) + " mil. sq. meters"; }); 
 
 </script>
