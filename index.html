@@ -93,7 +93,7 @@ div.tooltip {
 		.domain([1, areaMax])
 		.range(colorbrewer.Oranges[9]);
 
-	queue().defer(d3.json, "/caCountiesTopoSimple.json")
+	queue().defer(d3.json, "caCountiesTopoSimple.json")
 		.await(ready);
 
 	function ready(error, ca){
