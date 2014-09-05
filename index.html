@@ -93,10 +93,10 @@ div.tooltip {
 		.domain([1, areaMax])
 		.range(colorbrewer.Oranges[9]);
 
-	//queue()
-	//	.defer(d3.json, "/ca-counties")
+	queue().defer(d3.json, "/ca-counties-topo.json")
+		.await(ready);
 
-	d3.json("ca-counties-topo.json", function(error, ca){
+	function ready(error, ca){
 
 		myObj = topojson.feature(ca, ca.objects.subunits);
 		console.log("myObj is available");
@@ -138,7 +138,7 @@ div.tooltip {
 		var div = d3.select("#map").append("div")
 			.attr("class", "tooltip")
 			.style("opacity", 0);
-	});
+	}
 
 	//key position encoding
 	var y = d3.scale.linear()
